@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <Authors>Wiregrass Code Technology</Authors>
+        <Company>Wiregrass Code Technology</Company>
+        <Product>Configurations</Product>
+        <Copyright>Copyright © 2021 Wiregrass Code Technology</Copyright>
+        <Description>Configurations library for JSON-based application settings files</Description>
+        <AssemblyName>Configurations</AssemblyName>
+        <RootNamespace>Configurations</RootNamespace>
+        <PackageId>Configurations</PackageId>
+        <SignAssembly>true</SignAssembly>
+        <AssemblyOriginatorKeyFile>NameKey.snk</AssemblyOriginatorKeyFile>
+        <EnableNETAnalyzers>true</EnableNETAnalyzers>
+        <Version>1.0.0.0</Version>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="5.0.3">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="5.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Primitives" Version="5.0.1" />
+    </ItemGroup>
+
+</Project>
