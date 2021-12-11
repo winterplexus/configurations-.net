@@ -1,12 +1,13 @@
 ﻿//
 //  ApplicationSettings.cs
 //
-//  Wiregrass Code Technology 2021
+//  Wiregrass Code Technology 2021-2022
 //
 using System;
 using System.Globalization;
 using Microsoft.Extensions.Configuration;
 
+[assembly: CLSCompliant(true)]
 namespace Configurations
 {
     public class ApplicationSettings : IApplicationSettings
@@ -65,11 +66,7 @@ namespace Configurations
         public string GetStringValue(string name)
         {
             var configurationValue = GetConfiguration()[name];
-            if (string.IsNullOrEmpty(configurationValue))
-            {
-                return string.Empty;
-            }
-            return !string.IsNullOrEmpty(configurationValue) ? configurationValue : string.Empty;
+            return string.IsNullOrEmpty(configurationValue) ? string.Empty : configurationValue;
         }
 
         public bool GetBooleanValue(string name)

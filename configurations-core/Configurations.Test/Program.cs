@@ -1,13 +1,14 @@
 ﻿//
 //  Program.cs
 //
-//  Wiregrass Code Technology 2021
+//  Wiregrass Code Technology 2021-2022
 //
 using System;
 
+[assembly: CLSCompliant(true)]
 namespace Configurations.Test
 {
-    public class Program
+    public static class Program
     {
         public static void Main()
         {
@@ -18,7 +19,7 @@ namespace Configurations.Test
 
         private static void TestApplicationSettings()
         {
-            Console.WriteLine("{0}test: application settings using default constructor values", Environment.NewLine);
+            Console.WriteLine($"{Environment.NewLine}test: application settings using default constructor values");
 
             try
             {
@@ -28,13 +29,13 @@ namespace Configurations.Test
             }
             catch (ArgumentException ae)
             {
-                Console.WriteLine("exception-> argument exception: {0}", ae.Message);
+                Console.WriteLine($"exception-> argument exception: {ae.Message}");
             }
         }
 
         private static void TestApplicationSettings(string sectionName)
         {
-            Console.WriteLine("{0}test: application settings using section name {1}", Environment.NewLine, sectionName);
+            Console.WriteLine($"{Environment.NewLine}test: application settings using section name {sectionName}");
 
             try
             {
@@ -44,13 +45,13 @@ namespace Configurations.Test
             }
             catch (ArgumentException ae)
             {
-                Console.WriteLine("exception-> argument exception: {0}", ae.Message);
+                Console.WriteLine($"exception-> argument exception: {ae.Message}");
             }
         }
 
         private static void TestApplicationSettings(string sectionName, string fileName)
         {
-            Console.WriteLine("{0}test: application settings using section name {1} and path name {2}", Environment.NewLine, sectionName, fileName);
+            Console.WriteLine($"{Environment.NewLine}test: application settings using section name {sectionName} and path name {fileName}");
 
             try
             {
@@ -60,19 +61,19 @@ namespace Configurations.Test
             }
             catch (ArgumentException ae)
             {
-                Console.WriteLine("exception-> argument exception: {0}", ae.Message);
+                Console.WriteLine($"exception-> argument exception: {ae.Message}");
             }
         }
 
         private static void DisplayApplicationSettings(IApplicationSettings applicationSettings)
         {
-            Console.WriteLine("element name         : {0}", applicationSettings.GetStringValue("ElementName"));
-            Console.WriteLine("element is a gas?    : {0}", applicationSettings.GetBooleanValue("ElementIsGas"));
-            Console.WriteLine("atomic number        : {0}", applicationSettings.GetIntegerValue("AtomicNumber"));
-            Console.WriteLine("atomic weight        : {0}", applicationSettings.GetDoubleValue("AtomicWeight"));
-            Console.WriteLine("thermal conductivity : {0}", applicationSettings.GetDecimalValue("ThermalConductivity"));
-            Console.WriteLine("source               : {0}", applicationSettings.GetStringValue("Source"));
-            Console.WriteLine("source publish date  : {0}", applicationSettings.GetDateTimeValue("SourcePublishDate"));
+            Console.WriteLine($"element name         : {applicationSettings.GetStringValue("ElementName")}");
+            Console.WriteLine($"element is a gas?    : {applicationSettings.GetBooleanValue("ElementIsGas")}");
+            Console.WriteLine($"atomic number        : {applicationSettings.GetIntegerValue("AtomicNumber")}");
+            Console.WriteLine($"atomic weight        : {applicationSettings.GetDoubleValue("AtomicWeight")}");
+            Console.WriteLine($"thermal conductivity : {applicationSettings.GetDecimalValue("ThermalConductivity")}");
+            Console.WriteLine($"source               : {applicationSettings.GetStringValue("Source")}");
+            Console.WriteLine($"source publish date  : {applicationSettings.GetDateTimeValue("SourcePublishDate")}");
         }
     }
 }
