@@ -1,9 +1,8 @@
 ﻿//
 //  ApplicationSettings.cs
 //
-//  Wiregrass Code Technology 2021-2022
+//  Code Construct System 2021-2024
 //
-using System;
 using System.Globalization;
 using Microsoft.Extensions.Configuration;
 
@@ -76,7 +75,7 @@ namespace Configurations
             {
                 return false;
             }
-            return configurationValue.Equals("T", StringComparison.OrdinalIgnoreCase) || configurationValue.Equals("TRUE", StringComparison.OrdinalIgnoreCase);
+            return configurationValue.Equals("TRUE", StringComparison.OrdinalIgnoreCase);
         }
 
         public DateTime? GetDateTimeValue(string name)
