@@ -1,7 +1,7 @@
 ﻿//
 //  ApplicationSettings.cs
 //
-//  Code Construct System 2021-2024
+//  Code Construct System 2021-2025
 //
 using System.Globalization;
 using Microsoft.Extensions.Configuration;
@@ -16,64 +16,94 @@ namespace Configurations
 
         public ApplicationSettings()
         {
-            settingsSectionName = "appSettings";
             settingsFileName = "appsettings.json";
+            settingsSectionName = "appSettings";
         }
 
         public ApplicationSettings(string sectionName)
         {
-            settingsSectionName = sectionName;
             settingsFileName = "appsettings.json";
+            settingsSectionName = sectionName;
         }
 
         public ApplicationSettings(string sectionName, string fileName)
         {
-            settingsSectionName = sectionName;
             settingsFileName = fileName;
+            settingsSectionName = sectionName;
         }
 
-        public long GetIntegerValue(string name)
+        public char? GetCharValue(string name)
         {
             var configurationValue = GetConfiguration()[name];
             if (string.IsNullOrEmpty(configurationValue))
             {
-                return 0;
+                return null;
+            }
+            return configurationValue[0];
+        }
+
+        public int? GetIntValue(string name)
+        {
+            var configurationValue = GetConfiguration()[name];
+            if (string.IsNullOrEmpty(configurationValue))
+            {
+                return null;
+            }
+            return int.TryParse(configurationValue, out var number) ? number : 0;
+        }
+
+        public long? GetLongValue(string name)
+        {
+            var configurationValue = GetConfiguration()[name];
+            if (string.IsNullOrEmpty(configurationValue))
+            {
+                return null;
             }
             return long.TryParse(configurationValue, out var number) ? number : 0;
         }
 
-        public double GetDoubleValue(string name)
+        public float? GetFloatValue(string name)
         {
             var configurationValue = GetConfiguration()[name];
             if (string.IsNullOrEmpty(configurationValue))
             {
-                return 0;
+                return null;
+            }
+            return float.TryParse(configurationValue, out var number) ? number : 0;
+        }
+
+        public double? GetDoubleValue(string name)
+        {
+            var configurationValue = GetConfiguration()[name];
+            if (string.IsNullOrEmpty(configurationValue))
+            {
+                return null;
             }
             return double.TryParse(configurationValue, out var number) ? number : 0;
         }
 
-        public decimal GetDecimalValue(string name)
+        public decimal? GetDecimalValue(string name)
         {
             var configurationValue = GetConfiguration()[name];
             if (string.IsNullOrEmpty(configurationValue))
             {
-                return 0;
+                return null;
             }
             return decimal.TryParse(configurationValue, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out var number) ? number : 0;
         }
 
-        public string GetStringValue(string name)
+        public string? GetStringValue(string name)
         {
             var configurationValue = GetConfiguration()[name];
-            return string.IsNullOrEmpty(configurationValue) ? string.Empty : configurationValue;
+            return string.IsNullOrEmpty(configurationValue) ? null : configurationValue;
         }
 
-        public bool GetBooleanValue(string name)
+        public bool? GetBoolValue(string name)
         {
             var configurationValue = GetConfiguration()[name];
             if (string.IsNullOrEmpty(configurationValue))
             {
-                return false;
+                return null;
             }
             return configurationValue.Equals("TRUE", StringComparison.OrdinalIgnoreCase);
         }
