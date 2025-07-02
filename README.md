@@ -1,7 +1,7 @@
 Configurations Library for .NET
 ===============================
 
-Configurations library based on .NET 6 platform and contains interface and class for application settings configurations.
+Configurations library based on .NET 8 LTS platform and contains interface and class for application settings configurations.
 
 * IApplicationSettings interface:
 
