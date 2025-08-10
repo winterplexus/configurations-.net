@@ -1,7 +1,7 @@
 //
 //  ApplicationSettingsTest.cs
 //
-//  Code Construct System 2021-2024
+//  Code Construct System 2021-2025
 //
 namespace Configurations.Test
 {
@@ -17,21 +17,27 @@ namespace Configurations.Test
 
             try
             {
-                IApplicationSettings applicationSettings = new ApplicationSettings();
+                ApplicationSettings applicationSettings = new ApplicationSettings();
 
-                Console.WriteLine($"atomic number             : {applicationSettings.GetIntegerValue("AtomicNumber")}");
-                Console.WriteLine($"atomic weight             : {applicationSettings.GetDoubleValue("AtomicWeight")}");
-                Console.WriteLine($"thermal conductivity      : {applicationSettings.GetDecimalValue("ThermalConductivity")}");
-                Console.WriteLine($"element name              : {applicationSettings.GetStringValue("ElementName")}");
-                Console.WriteLine($"element is a gas?         : {applicationSettings.GetBooleanValue("ElementIsGas")}");
-                Console.WriteLine($"source publish date       : {applicationSettings.GetDateTimeValue("SourcePublishDate")}");
+                Console.WriteLine($"char-value         : {applicationSettings.GetCharValue("char-value")}");                                     
+                Console.WriteLine($"int-value          : {applicationSettings.GetIntValue("int-value")}");
+                Console.WriteLine($"long-vaue          : {applicationSettings.GetLongValue("long-value")}");                                     
+                Console.WriteLine($"float-value        : {applicationSettings.GetFloatValue("float-value")}");                                    
+                Console.WriteLine($"double-value       : {applicationSettings.GetDoubleValue("double-value")}");
+                Console.WriteLine($"decimal-value      : {applicationSettings.GetDecimalValue("decimal-value")}");
+                Console.WriteLine($"string-value       : {applicationSettings.GetStringValue("string-value")}");
+                Console.WriteLine($"bool-value         : {applicationSettings.GetBoolValue("bool-value")}");
+                Console.WriteLine($"datetime-value     : {applicationSettings.GetDateTimeValue("datetime-value")}");
 
-                Assert.AreEqual("10",                           applicationSettings.GetIntegerValue("AtomicNumber").ToString());
-                Assert.AreEqual("20.179",                       applicationSettings.GetDoubleValue("AtomicWeight").ToString());
-                Assert.AreEqual("81435716392427590.1995589401", applicationSettings.GetDecimalValue("ThermalConductivity").ToString());
-                Assert.AreEqual("neon",                         applicationSettings.GetStringValue("ElementName"));
-                Assert.AreEqual("True",                         applicationSettings.GetBooleanValue("ElementIsGas").ToString());
-                Assert.AreEqual("7/15/2023 12:00:00 AM",        applicationSettings.GetDateTimeValue("SourcePublishDate").ToString());
+                Assert.AreEqual("A",                     applicationSettings.GetCharValue("char-value").ToString());                             
+                Assert.AreEqual("1",                     applicationSettings.GetIntValue("int-value").ToString());               
+                Assert.AreEqual("2",                     applicationSettings.GetLongValue("long-value").ToString());                             
+                Assert.AreEqual("1.1",                   applicationSettings.GetFloatValue("float-value").ToString());                            
+                Assert.AreEqual("2.12",                  applicationSettings.GetDoubleValue("double-value").ToString());
+                Assert.AreEqual("3.123",                 applicationSettings.GetDecimalValue("decimal-value").ToString());
+                Assert.AreEqual("ABC abc",               applicationSettings.GetStringValue("string-value"));
+                Assert.AreEqual("True",                  applicationSettings.GetBoolValue("bool-value").ToString());
+                Assert.AreEqual("6/15/2025 12:00:00 AM", applicationSettings.GetDateTimeValue("datetime-value").ToString());
             }
             catch (ArgumentException ae)
             {
@@ -50,21 +56,27 @@ namespace Configurations.Test
 
             try
             {
-                IApplicationSettings applicationSettings = new ApplicationSettings(sectionName);
+                ApplicationSettings applicationSettings = new ApplicationSettings(sectionName);
 
-                Console.WriteLine($"atomic number             : {applicationSettings.GetIntegerValue("AtomicNumber")}");
-                Console.WriteLine($"atomic weight             : {applicationSettings.GetDoubleValue("AtomicWeight")}");
-                Console.WriteLine($"thermal conductivity      : {applicationSettings.GetDecimalValue("ThermalConductivity")}");
-                Console.WriteLine($"element name              : {applicationSettings.GetStringValue("ElementName")}");
-                Console.WriteLine($"element is a gas?         : {applicationSettings.GetBooleanValue("ElementIsGas")}");
-                Console.WriteLine($"source publish date       : {applicationSettings.GetDateTimeValue("SourcePublishDate")}");
+                Console.WriteLine($"char-value         : {applicationSettings.GetCharValue("char-value")}");                                     
+                Console.WriteLine($"int-value          : {applicationSettings.GetIntValue("int-value")}");
+                Console.WriteLine($"long-vaue          : {applicationSettings.GetLongValue("long-value")}");                                     
+                Console.WriteLine($"float-value        : {applicationSettings.GetFloatValue("float-value")}");                                    
+                Console.WriteLine($"double-value       : {applicationSettings.GetDoubleValue("double-value")}");
+                Console.WriteLine($"decimal-value      : {applicationSettings.GetDecimalValue("decimal-value")}");
+                Console.WriteLine($"string-value       : {applicationSettings.GetStringValue("string-value")}");
+                Console.WriteLine($"bool-value         : {applicationSettings.GetBoolValue("bool-value")}");
+                Console.WriteLine($"datetime-value     : {applicationSettings.GetDateTimeValue("datetime-value")}");
 
-                Assert.AreEqual("10",                           applicationSettings.GetIntegerValue("AtomicNumber").ToString());
-                Assert.AreEqual("20.179",                       applicationSettings.GetDoubleValue("AtomicWeight").ToString());
-                Assert.AreEqual("81435716392427590.1995589401", applicationSettings.GetDecimalValue("ThermalConductivity").ToString());
-                Assert.AreEqual("neon",                         applicationSettings.GetStringValue("ElementName"));
-                Assert.AreEqual("True",                         applicationSettings.GetBooleanValue("ElementIsGas").ToString());
-                Assert.AreEqual("7/15/2023 12:00:00 AM",        applicationSettings.GetDateTimeValue("SourcePublishDate").ToString());
+                Assert.AreEqual("A",                     applicationSettings.GetCharValue("char-value").ToString());                             
+                Assert.AreEqual("1",                     applicationSettings.GetIntValue("int-value").ToString());               
+                Assert.AreEqual("2",                     applicationSettings.GetLongValue("long-value").ToString());                             
+                Assert.AreEqual("1.1",                   applicationSettings.GetFloatValue("float-value").ToString());                            
+                Assert.AreEqual("2.12",                  applicationSettings.GetDoubleValue("double-value").ToString());
+                Assert.AreEqual("3.123",                 applicationSettings.GetDecimalValue("decimal-value").ToString());
+                Assert.AreEqual("ABC abc",               applicationSettings.GetStringValue("string-value"));
+                Assert.AreEqual("True",                  applicationSettings.GetBoolValue("bool-value").ToString());
+                Assert.AreEqual("6/15/2025 12:00:00 AM", applicationSettings.GetDateTimeValue("datetime-value").ToString());                  
             }
             catch (ArgumentException ae)
             {
@@ -84,21 +96,27 @@ namespace Configurations.Test
 
             try
             {
-                IApplicationSettings applicationSettings = new ApplicationSettings(sectionName, applicationSettingsFileName);
+                ApplicationSettings applicationSettings = new ApplicationSettings(sectionName, applicationSettingsFileName);
 
-                Console.WriteLine($"atomic number             : {applicationSettings.GetIntegerValue("AtomicNumber")}");
-                Console.WriteLine($"atomic weight             : {applicationSettings.GetDoubleValue("AtomicWeight")}");
-                Console.WriteLine($"thermal conductivity      : {applicationSettings.GetDecimalValue("ThermalConductivity")}");
-                Console.WriteLine($"element name              : {applicationSettings.GetStringValue("ElementName")}");
-                Console.WriteLine($"element is a gas?         : {applicationSettings.GetBooleanValue("ElementIsGas")}");
-                Console.WriteLine($"source publish date       : {applicationSettings.GetDateTimeValue("SourcePublishDate")}");
+                Console.WriteLine($"char-value         : {applicationSettings.GetCharValue("char-value")}");
+                Console.WriteLine($"int-value          : {applicationSettings.GetIntValue("int-value")}");
+                Console.WriteLine($"long-vaue          : {applicationSettings.GetLongValue("long-value")}");
+                Console.WriteLine($"float-value        : {applicationSettings.GetFloatValue("float-value")}");
+                Console.WriteLine($"double-value       : {applicationSettings.GetDoubleValue("double-value")}");
+                Console.WriteLine($"decimal-value      : {applicationSettings.GetDecimalValue("decimal-value")}");
+                Console.WriteLine($"string-value       : {applicationSettings.GetStringValue("string-value")}");
+                Console.WriteLine($"bool-value         : {applicationSettings.GetBoolValue("bool-value")}");
+                Console.WriteLine($"datetime-value     : {applicationSettings.GetDateTimeValue("datetime-value")}");
 
-                Assert.AreEqual("10",                           applicationSettings.GetIntegerValue("AtomicNumber").ToString());
-                Assert.AreEqual("20.179",                       applicationSettings.GetDoubleValue("AtomicWeight").ToString());
-                Assert.AreEqual("81435716392427590.1995589401", applicationSettings.GetDecimalValue("ThermalConductivity").ToString());
-                Assert.AreEqual("neon",                         applicationSettings.GetStringValue("ElementName"));
-                Assert.AreEqual("True",                         applicationSettings.GetBooleanValue("ElementIsGas").ToString());
-                Assert.AreEqual("7/15/2023 12:00:00 AM",        applicationSettings.GetDateTimeValue("SourcePublishDate").ToString());
+                Assert.AreEqual("A",                     applicationSettings.GetCharValue("char-value").ToString());
+                Assert.AreEqual("1",                     applicationSettings.GetIntValue("int-value").ToString());
+                Assert.AreEqual("2",                     applicationSettings.GetLongValue("long-value").ToString());
+                Assert.AreEqual("1.1",                   applicationSettings.GetFloatValue("float-value").ToString());
+                Assert.AreEqual("2.12",                  applicationSettings.GetDoubleValue("double-value").ToString());
+                Assert.AreEqual("3.123",                 applicationSettings.GetDecimalValue("decimal-value").ToString());
+                Assert.AreEqual("ABC abc",               applicationSettings.GetStringValue("string-value"));
+                Assert.AreEqual("True",                  applicationSettings.GetBoolValue("bool-value").ToString());
+                Assert.AreEqual("6/15/2025 12:00:00 AM", applicationSettings.GetDateTimeValue("datetime-value").ToString());
             }
             catch (ArgumentException ae)
             {

@@ -1,10 +1,10 @@
 ﻿//
 //  ApplicationSettings.cs
 //
-//  Code Construct System 2021-2024
+//  Code Construct System 2021-2025
 //
-using System.Globalization;
 using Microsoft.Extensions.Configuration;
+using System.Globalization;
 
 [assembly: CLSCompliant(true)]
 namespace Configurations
@@ -16,30 +16,60 @@ namespace Configurations
 
         public ApplicationSettings()
         {
-            settingsSectionName = "appSettings";
             settingsFileName = "appsettings.json";
+            settingsSectionName = "appSettings";
         }
 
         public ApplicationSettings(string sectionName)
         {
-            settingsSectionName = sectionName;
             settingsFileName = "appsettings.json";
+            settingsSectionName = sectionName;
         }
 
         public ApplicationSettings(string sectionName, string fileName)
         {
-            settingsSectionName = sectionName;
             settingsFileName = fileName;
+            settingsSectionName = sectionName;
         }
 
-        public long GetIntegerValue(string name)
+        public char GetCharValue(string name)
+        {
+            var configurationValue = GetConfiguration()[name];
+            if (string.IsNullOrEmpty(configurationValue))
+            {
+                return ' ';
+            }
+            return configurationValue[0];
+        }
+
+        public int GetIntValue(string name)
         {
             var configurationValue = GetConfiguration()[name];
             if (string.IsNullOrEmpty(configurationValue))
             {
                 return 0;
             }
-            return long.TryParse(configurationValue, out var number) ? number : 0;
+            return int.TryParse(configurationValue, out var number) ? number : 0;
+        }
+
+        public long GetLongValue(string name)
+        {
+            var configurationValue = GetConfiguration()[name];
+            if (string.IsNullOrEmpty(configurationValue))
+            {
+                return 0L;
+            }
+            return long.TryParse(configurationValue, out var number) ? number : 0L;
+        }
+
+        public float GetFloatValue(string name)
+        {
+            var configurationValue = GetConfiguration()[name];
+            if (string.IsNullOrEmpty(configurationValue))
+            {
+                return 0;
+            }
+            return float.TryParse(configurationValue, out var number) ? number : 0;
         }
 
         public double GetDoubleValue(string name)
@@ -68,7 +98,7 @@ namespace Configurations
             return string.IsNullOrEmpty(configurationValue) ? string.Empty : configurationValue;
         }
 
-        public bool GetBooleanValue(string name)
+        public bool GetBoolValue(string name)
         {
             var configurationValue = GetConfiguration()[name];
             if (string.IsNullOrEmpty(configurationValue))
@@ -78,14 +108,14 @@ namespace Configurations
             return configurationValue.Equals("TRUE", StringComparison.OrdinalIgnoreCase);
         }
 
-        public DateTime? GetDateTimeValue(string name)
+        public DateTime GetDateTimeValue(string name)
         {
             var configurationValue = GetConfiguration()[name];
             if (string.IsNullOrEmpty(configurationValue))
             {
-                return null;
+                return DateTime.MinValue;
             }
-            return DateTime.TryParse(configurationValue, out var dateTime) ? dateTime : null;
+            return DateTime.TryParse(configurationValue, out var dateTime) ? dateTime : DateTime.MinValue;
         }
 
         private IConfigurationSection GetConfiguration()

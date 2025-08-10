@@ -8,13 +8,13 @@
         <Company>Code Construct System</Company>
         <Product>Configurations</Product>
         <Description>Configurations library for JSON-based application settings files</Description>
-        <Copyright>Copyright © 2021-2024 Code Construct System</Copyright>
+        <Copyright>Copyright © 2021-2025 Code Construct System</Copyright>
         <AssemblyName>Configurations</AssemblyName>
         <RootNamespace>Configurations</RootNamespace>
         <EnableNETAnalyzers>true</EnableNETAnalyzers>
         <AnalysisMode>AllEnabledByDefault</AnalysisMode>
         <AnalysisLevel>latest</AnalysisLevel>
-        <Version>1.2.0.0</Version>
+        <Version>2.0.0.0</Version>
     </PropertyGroup>
 
     <ItemGroup>
@@ -22,7 +22,7 @@
         <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="9.0.6" />
         <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.6" />
         <PackageReference Include="Microsoft.Extensions.Primitives" Version="9.0.6" />
-        <PackageReference Include="System.Text.Json" Version="9.0.6" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
     </ItemGroup>
 
 </Project>
