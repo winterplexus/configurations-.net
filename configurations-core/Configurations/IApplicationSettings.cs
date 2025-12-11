@@ -16,5 +16,7 @@ namespace Configurations
         public string GetStringValue(string name);
         public bool GetBoolValue(string name);
         public DateTime GetDateTimeValue(string name);
+        public DateOnly GetDateOnlyValue(string name);
+        public TimeOnly GetTimeOnlyValue(string name);
     }
 }
