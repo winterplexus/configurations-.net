@@ -115,7 +115,29 @@ namespace Configurations
             {
                 return DateTime.MinValue;
             }
-            return DateTime.TryParse(configurationValue, out var dateTime) ? dateTime : DateTime.MinValue;
+            return DateTime.TryParse(configurationValue, out var dt) ? dt : DateTime.MinValue;
+        }
+
+        public DateOnly GetDateOnlyValue(string name)
+        {
+            var configurationValue = GetConfiguration()[name];
+            if (string.IsNullOrEmpty(configurationValue))
+            {
+                return DateOnly.FromDateTime(DateTime.MinValue);
+            }
+            var dateTime = DateTime.TryParse(configurationValue, out var dt) ? dt : DateTime.MinValue;
+            return DateOnly.FromDateTime(dateTime);
+        }
+
+        public TimeOnly GetTimeOnlyValue(string name)
+        {
+            var configurationValue = GetConfiguration()[name];
+            if (string.IsNullOrEmpty(configurationValue))
+            {
+                return TimeOnly.FromDateTime(DateTime.MinValue);
+            }
+            var dateTime = DateTime.TryParse(configurationValue, out var dt) ? dt : DateTime.MinValue;
+            return TimeOnly.FromDateTime(dateTime);
         }
 
         private IConfigurationSection GetConfiguration()

@@ -8,9 +8,9 @@
     "decimal-value": "3.123",
     "string-value": "ABC abc",
     "bool-value": "true",
-    "datetime-value": "6/15/2025 12:00:00 AM"
+    "datetime-value": "6/15/2025 12:10:55 AM"
   },
-  "elementAppSettings": {
+  "sectionName": {
     "char-value": "A",
     "int-value": "1",
     "long-value": "2",
@@ -19,6 +19,6 @@
     "decimal-value": "3.123",
     "string-value": "ABC abc",
     "bool-value": "true",
-    "datetime-value": "6/15/2025 12:00:00 AM"
+    "datetime-value": "6/15/2025 12:10:55 AM"
   }
 }
